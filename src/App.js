@@ -5,7 +5,9 @@ import Axios from 'axios';
 import socketIOClient from "socket.io-client";
 import ReactApexChart from 'react-apexcharts';
 import ApexChart from 'apexcharts';
-import {Row,Col,Container,Button,Navbar,NavbarBrand,Nav,NavItem,NavLink,Spinner} from 'reactstrap';
+import {Row,Col,Container,Button,Navbar,NavbarBrand,Nav,NavItem,NavLink,Spinner,Modal,ModalFooter,ModalHeader,ModalBody,Label,FormGroup} from 'reactstrap';
+import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css'
 var alphaChartData = [];
 var betaChartData=[];
 var thetaChartData=[];
@@ -21,6 +23,13 @@ class App extends Component {
     this.state = {
       currentState:false,
       loading:false,
+      minutes:'',
+      userId:'',
+      value: {
+        min: 1,
+        max: 2,
+      },
+      modal:false,
       alphaOptions: {
         chart: {
             id: 'realtimealpha',
@@ -268,8 +277,32 @@ class App extends Component {
     try{
       let response = await Axios.get('http://localhost:8000/unsub');
       this.setState({
-        currentState:!this.state.currentState
+        currentState:!this.state.currentState,
+        userId: response.data.id,
+        minutes:response.data.minutes,
+        modal:true
       })
+    }catch(e){
+      console.log(e)
+    }
+  }
+
+  toggle=()=>{
+    this.setState({
+      modal:!this.state.modal
+    })
+  }
+
+  handleSubmit=async()=>{
+    console.log(this.state.value);
+    try{
+      
+        let response = await Axios.post('http://localhost:8000/updatePost',{
+          id:this.state.userId,
+          min:this.state.value.min,
+          max:this.state.value.max
+      })
+      console.log(response);
     }catch(e){
       console.log(e)
     }
@@ -317,6 +350,30 @@ class App extends Component {
           <ReactApexChart options={this.state.thetaOptions} series={this.state.thetaSeries} type="line" height="250" />
         </Col>
       </Row> 
+
+
+      //Modal
+      <Modal isOpen={this.state.modal} toggle={this.toggle} >
+        <ModalHeader toggle={this.toggle}>Feedback</ModalHeader>
+        <ModalBody>
+          <FormGroup>
+            <Label>Select drowsy time</Label>
+            <InputRange
+              draggableTrack
+              maxValue={this.state.minutes}
+              minValue={1}
+              value={this.state.value}
+              onChange={value => this.setState({ value: value })}
+              onChangeComplete={value => this.setState({value})} 
+            />
+          </FormGroup>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={this.handleSubmit}>Submit</Button>{' '}
+          <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+        </ModalFooter>
+      </Modal>
+
     </div>
   );
   }
