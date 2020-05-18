@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Driver Drowsiness Introduction 
 
-## Available Scripts
+An Exclusive, EEG based Driver Drowsiness Detection system submitted as a Final Year Project to Bahria University.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+To get started developing right away:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the application:
+`$ https://github.com/yahyawasim97/driver-drowsiness-backend`
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+2. Start the application:
+`node index.js`
 
-### `npm test`
+## Functionality
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is used to detect driver drowsiness by analyzing EEG(electroencephalogram) signals of the driver. It is based on MERN stack and uses the principals of Artificial Intelligence to produce more accurate results. The quality of this system is that is not affected by Environmental Factors
 
-### `npm run build`
+## Key Features
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Single Sensor Base
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Uses the AF3 sensor which allows this project to move its span for the 14 channel EEG device to a single Ear-based or Glasses-Based EEG device.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Accurate
 
-### `npm run eject`
+Among every other framework (Computer Vision, etc.) EEG is considered as the safest idea or approach to determine the sleepiness of drivers which is not affected by external factors, resulting in more accurate results.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Absolutely Free
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is based on open-source framework and technologies, easing with the flexibility to use the project or you can even contribute to enchance the performance and accuracy.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contributing
+The main purpose of this repository is to provide some contribution in Brain Computing.
