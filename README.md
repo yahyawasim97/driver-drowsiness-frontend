@@ -9,8 +9,11 @@ To get started developing right away:
 1. Clone the application:
 `$ https://github.com/yahyawasim97/driver-drowsiness-backend`
 
-2. Start the application:
-`node index.js`
+2. Install Dependencies:
+`$ npm install`
+
+2. Start Application:
+`$ npm start`
 
 ## Functionality
 
